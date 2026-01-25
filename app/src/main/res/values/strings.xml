@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">VOC_Security_Mob</string>
+    <string name="mdp">Mot de passe</string>
+    <string name="se_connecter">Se connecter</string>
+    <string name="email">Email</string>
+    <string name="voc_security_login">VOC Security Login</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

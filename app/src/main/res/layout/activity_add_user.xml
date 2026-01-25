@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:gravity="center">
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ajouter un Collaborateur"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="20dp"/>
+
+    <EditText android:id="@+id/etNewName" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Nom complet"/>
+    <EditText android:id="@+id/etNewEmail" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Email" android:inputType="textEmailAddress"/>
+    <EditText android:id="@+id/etNewPassword" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Mot de passe" android:inputType="textPassword"/>
+
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Rôle :" android:layout_marginTop="10dp"/>
+    <Spinner
+        android:id="@+id/spinnerRole"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/roles_array"/>
+    <EditText
+        android:id="@+id/etNewOrganization"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nom de l'organisme / société"
+        android:layout_marginTop="10dp"
+        android:inputType="textCapWords"/>
+    <Button
+        android:id="@+id/btnSaveUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enregistrer le membre"
+        android:layout_marginTop="20dp"/>
+</LinearLayout>
