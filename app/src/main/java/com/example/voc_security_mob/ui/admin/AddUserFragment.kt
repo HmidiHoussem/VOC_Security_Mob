@@ -39,9 +39,9 @@ class AddUserFragment : Fragment(R.layout.activity_add_user) {
 
         binding.btnSaveUser.setOnClickListener {
             val user = User(
-                name = binding.etNewName.text.toString(),
-                email = binding.etNewEmail.text.toString(),
-                password = binding.etNewPassword.text.toString(),
+                name = binding.etNewName.text.toString().trim(),
+                email = binding.etNewEmail.text.toString().trim(),
+                password = binding.etNewPassword.text.toString().trim(),
                 role = binding.spinnerRole.selectedItem.toString(),
                 organizationName = binding.etNewOrganization.text.toString()
             )
