@@ -28,6 +28,9 @@
         <activity android:name=".ui.admin.UserListActivity" android:exported="false" />
         <activity android:name=".ui.admin.SecurityLogsActivity" android:exported="false" />
 
+
+        <activity android:name=".ui.common.DashboardActivity" android:exported="false" />
+
     </application>
 
 </manifest>

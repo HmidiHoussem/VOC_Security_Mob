@@ -19,7 +19,13 @@
     <EditText android:id="@+id/etNewEmail" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Email" android:inputType="textEmailAddress"/>
     <EditText android:id="@+id/etNewPassword" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Mot de passe" android:inputType="textPassword"/>
 
-    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Rôle :" android:layout_marginTop="10dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Rôle :"
+        android:layout_marginTop="10dp"
+        android:gravity="start"
+        />
     <Spinner
         android:id="@+id/spinnerRole"
         android:layout_width="match_parent"
