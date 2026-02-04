@@ -1,60 +1,71 @@
 package com.example.voc_security_mob.ui.common
 
+import android.content.Context
+import android.content.Intent
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.voc_security_mob.R
+import com.example.voc_security_mob.databinding.FragmentGeneralProfileBinding
+import com.example.voc_security_mob.ui.auth.LoginActivity
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [GeneralProfileFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class GeneralProfileFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+class GeneralProfileFragment : Fragment(R.layout.fragment_general_profile) {
+
+    private var _binding: FragmentGeneralProfileBinding? = null
+    private val binding get() = _binding!!
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        _binding = FragmentGeneralProfileBinding.bind(view)
+
+        val sharedPref = requireActivity().getSharedPreferences("UserSession", Context.MODE_PRIVATE)
+
+        // Récupération via SharedPreferences
+        val name = sharedPref.getString("USER_NAME", "Utilisateur")
+        val role = sharedPref.getString("USER_ROLE", "ANALYSTE")
+        val email = sharedPref.getString("USER_EMAIL", "")
+        val org = sharedPref.getString("USER_ORG", "")
+        val id = sharedPref.getString("USER_ID", "0")
+
+        binding.apply {
+            tvProfileName.text = name
+            tvProfileEmail.text = email
+            tvProfileOrg.text = org
+            tvProfileID.text = "UID: $id"
+            tvRoleBadge.text = role
+
+            // Badge de couleur selon le rôle
+            if (role == "ADMIN") {
+                tvRoleBadge.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#E91E63")) // Rose/Rouge
+            } else {
+                tvRoleBadge.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#2196F3")) // Bleu
+            }
+
+            // Navigation vers la modification
+
+            btnEditProfile.setOnClickListener {
+                parentFragmentManager.beginTransaction()
+                    .replace(R.id.fragment_container, EditProfileFragment())
+                    .addToBackStack(null)
+                    .commit()
+            }
+
+            btnLogout.setOnClickListener {
+                logout()
+            }
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_general_profile, container, false)
-    }
-
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment GeneralProfileFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            GeneralProfileFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    private fun logout() {
+        val sharedPref = requireActivity().getSharedPreferences("UserSession", Context.MODE_PRIVATE)
+        sharedPref.edit().clear().apply()
+        startActivity(Intent(requireContext(), LoginActivity::class.java))
+        requireActivity().finish()
     }
 }

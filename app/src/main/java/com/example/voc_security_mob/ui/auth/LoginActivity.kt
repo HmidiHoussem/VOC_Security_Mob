@@ -69,6 +69,7 @@ class LoginActivity : AppCompatActivity() {
                     with(sharedPref.edit()) {
                         putString("USER_ID", user.id.toString())
                         putString("USER_NAME", user.name)
+                        putString("USER_EMAIL", user.email)
                         putString("USER_ROLE", user.role) // Ex: "ADMIN" ou "ANALYSTE"
                         putString("USER_ORG", user.organizationName)
                         apply()

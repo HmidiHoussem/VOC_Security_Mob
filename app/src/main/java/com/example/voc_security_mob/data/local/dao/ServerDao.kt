@@ -23,4 +23,7 @@ interface ServerDao {
 
     @Query("SELECT COUNT(*) FROM servers")
     fun getServerCount(): Flow<Int>
+
+    @Query("SELECT * FROM servers WHERE id = :id")
+    suspend fun getServerById(id: Int): Server?
 }
