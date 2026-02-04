@@ -56,6 +56,13 @@ class GeneralProfileFragment : Fragment(R.layout.fragment_general_profile) {
                     .commit()
             }
 
+            binding.btnAbout.setOnClickListener {
+                parentFragmentManager.beginTransaction()
+                    .replace(R.id.fragment_container, AboutFragment())
+                    .addToBackStack(null)
+                    .commit()
+            }
+
             btnLogout.setOnClickListener {
                 logout()
             }

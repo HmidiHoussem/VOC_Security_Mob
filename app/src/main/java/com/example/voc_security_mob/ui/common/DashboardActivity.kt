@@ -44,7 +44,7 @@ class DashboardActivity : AppCompatActivity() {
             when (item.itemId) {
                 R.id.nav_home -> loadFragment(HomeFragment())
                 R.id.nav_users -> loadFragment(UserListFragment())
-                R.id.nav_add -> loadFragment(AddUserFragment())
+               // R.id.nav_add -> loadFragment(AddUserFragment())//suprimé
                 R.id.nav_assets -> loadFragment(ServerListFragment())
                 R.id.nav_profile -> loadFragment(GeneralProfileFragment())
             }

@@ -9,4 +9,8 @@
         <color name="error_red">#D32F2F</color>
         <color name="surface_grey">#F5F7FA</color>
         <color name="text_secondary">#757575</color>
+
+        <color name="score_high">#388E3C</color>
+        <color name="score_medium">#FFA500</color>
+        <color name="score_low">#D32F2F</color>
 </resources>

@@ -1,47 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical"
-    android:padding="20dp">
+    android:background="@color/surface_grey"
+    >
 
-    <TextView
-        android:id="@+id/tvScanTitle"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Analyse Cyber"
-        android:textSize="24sp"
-        android:textStyle="bold" />
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:gravity="center_horizontal">
 
-    <TextView
-        android:id="@+id/tvServerNameScan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Serveur : ..."
-        android:layout_marginBottom="30dp" />
+        <TextView
+            android:id="@+id/tvScanTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Analyse de Sécurité"
+            android:textSize="22sp"
+            android:textStyle="bold" />
 
-    <ProgressBar
-        android:id="@+id/progressBarScan"
-        style="?android:attr/progressBarStyleLarge"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:indeterminate="true" />
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="8dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="12dp">
+                <TextView android:id="@+id/tvServerNameScan" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textStyle="bold" android:text="Serveur: ..."/>
+                <TextView android:id="@+id/tvServerIPScan" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="IP: ..."/>
+                <TextView android:id="@+id/tvServerOSScan" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="OS: ..."/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
-    <TextView
-        android:id="@+id/tvStatus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Recherche de vulnérabilités..."
-        android:textSize="16sp" />
+        <ProgressBar
+            android:id="@+id/progressBarScan"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_margin="30dp"
+            android:indeterminate="true" />
 
-    <Button
-        android:id="@+id/btnBack"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="Retour aux assets"
-        android:visibility="gone" />
+        <TextView
+            android:id="@+id/tvScoreResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:textColor="@color/purple_700"
+            android:visibility="gone" />
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/tvVulnLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Points de vigilance détectés :"
+            android:layout_marginTop="20dp"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tvVulnDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/error_red"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/btnBack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="Terminer et Sauvegarder"
+            android:visibility="gone" />
+
+    </LinearLayout>
+</ScrollView>

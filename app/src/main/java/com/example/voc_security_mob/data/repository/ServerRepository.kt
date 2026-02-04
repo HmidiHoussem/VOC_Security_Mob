@@ -31,4 +31,8 @@ class ServerRepository(private val serverDao: ServerDao) {
 
     // Compteur pour le Dashboard
     val serverCount: Flow<Int> = serverDao.getServerCount()
+
+    suspend fun getServerById(id: Int): Server? {
+        return serverDao.getServerById(id)
+    }
 }

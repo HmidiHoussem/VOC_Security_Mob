@@ -8,10 +8,13 @@
         android:id="@+id/nav_users"
         android:icon="@android:drawable/ic_menu_mylocation"
         android:title="Équipe" />
-    <item
+    <!--
+   <item
         android:id="@+id/nav_add"
         android:icon="@android:drawable/ic_menu_add"
         android:title="Ajouter" />
+
+    -->
     <item
         android:id="@+id/nav_assets"
         android:icon="@android:drawable/ic_dialog_dialer"
