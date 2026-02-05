@@ -52,4 +52,9 @@ interface UserDao {
     @Query("SELECT * FROM users WHERE email = :email AND password = :password LIMIT 1")
     suspend fun login(email: String, password: String): User?
 
+
+    // by role !
+    @Query("SELECT COUNT(*) FROM users WHERE organizationName = :orgName")
+    fun getUserCountByOrg(orgName: String): Flow<Int>
+
 }

@@ -66,18 +66,38 @@
                 android:textColor="@color/purple_500"
                 android:textStyle="italic" />
         </LinearLayout>
-
+<!--
         <TextView
             android:id="@+id/tvUserOrg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ORG"
             android:background="#E8F5E9"
-            android:textColor="#388E3C"
             android:paddingHorizontal="8dp"
             android:paddingVertical="4dp"
+            android:text="ORG"
+            android:textColor="#388E3C"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+-->
+        <TextView
+            android:id="@+id/tvUserOrg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="NOM DE L'ORGANISATION"
+            android:background="#E8F5E9"
+            android:textColor="#388E3C"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="6dp"
             android:textStyle="bold"
-            android:textSize="10sp" />
+
+            android:textSize="10sp"
+            android:maxWidth="120dp"
+            android:singleLine="false"
+            android:maxLines="3"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:breakStrategy="balanced" />
 
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

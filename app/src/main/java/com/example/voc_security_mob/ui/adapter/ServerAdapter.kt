@@ -19,6 +19,10 @@ class ServerAdapter(private var servers: List<Server>, private val onServerClick
         val score: TextView = view.findViewById(R.id.tvSecurityScore)
     }
 
+    // --- AJOUT POUR LE SWIPE ---
+    fun getServerAt(position: Int): Server {
+        return servers[position]
+    }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ServerViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_server, parent, false)
         return ServerViewHolder(view)

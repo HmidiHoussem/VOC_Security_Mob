@@ -26,4 +26,31 @@ interface ServerDao {
 
     @Query("SELECT * FROM servers WHERE id = :id")
     suspend fun getServerById(id: Int): Server?
+
+
+    // pour le compte des pourcentage dans home (statistiuque)
+    @Query("SELECT AVG(securityScore) FROM servers")
+    fun getGlobalScore(): Flow<Double?>
+
+    @Query("SELECT AVG(securityScore) FROM servers WHERE organizationOwner = :org")
+    fun getOrgGlobalScore(org: String): Flow<Double?>
+
+    @Query("SELECT COUNT(*) FROM servers WHERE securityScore < 50")
+    fun getCriticalAlertsCount(): Flow<Int>
+
+    //by role!
+    @Query("SELECT COUNT(*) FROM servers WHERE organizationOwner = :orgName")
+    fun getServerCountByOrg(orgName: String): Flow<Int>
+
+    @Query("SELECT COUNT(*) FROM servers WHERE organizationOwner = :orgName AND securityScore < 50")
+    fun getCriticalAlertsCountByOrg(orgName: String): Flow<Int>
+
+
+    // ... tes autres fonctions ...
+
+    @Query("SELECT * FROM servers")
+    suspend fun getAllServersSync(): List<Server>
+
+    @Query("SELECT * FROM servers WHERE organizationOwner = :orgName")
+    suspend fun getServersByOrgSync(orgName: String): List<Server>
 }

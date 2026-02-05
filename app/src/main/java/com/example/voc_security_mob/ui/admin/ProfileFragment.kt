@@ -29,7 +29,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
         // Affichage des informations statiques pour l'instant
         binding.tvProfileName.text = "Administrateur VOC"
         binding.tvProfileEmail.text = "admin@voc.com"
-        binding.tvProfileRole.text = "Rôle : Super Admin"
+       // binding.tvProfileRole.text = "Rôle : Super Admin"
 
         // Gestion du Logout
         binding.btnLogout.setOnClickListener {
