@@ -2,4 +2,15 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="purple500">#9C27B0</color>
+        <color name="purple_200">#BB86FC</color>
+        <color name="purple_500">#6200EE</color>
+        <color name="purple_700">#3700B3</color>
+        <color name="error_red">#D32F2F</color>
+        <color name="surface_grey">#F5F7FA</color>
+        <color name="text_secondary">#757575</color>
+
+        <color name="score_high">#388E3C</color>
+        <color name="score_medium">#FFA500</color>
+        <color name="score_low">#D32F2F</color>
 </resources>

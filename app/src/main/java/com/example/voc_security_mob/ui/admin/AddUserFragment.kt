@@ -1,10 +1,12 @@
 package com.example.voc_security_mob.ui.admin
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import com.example.voc_security_mob.R
@@ -16,16 +18,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [AddUserFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class AddUserFragment : Fragment(R.layout.activity_add_user) {
     private var _binding: ActivityAddUserBinding? = null
     private val binding get() = _binding!!
@@ -37,7 +30,30 @@ class AddUserFragment : Fragment(R.layout.activity_add_user) {
         val db = AppDatabase.getDatabase(requireContext())
         val repo = UserRepository(db.userDao())
 
+        // Dans onViewCreated du AddUserFragment
+        val sharedPref = requireActivity().getSharedPreferences("UserSession", Context.MODE_PRIVATE)
+        val currentUserRole = sharedPref.getString("USER_ROLE", "")
+        val currentUserOrg = sharedPref.getString("USER_ORG", "")
+
+// 1. Forcer l'organisation pour le Manager
+        if (currentUserRole == "MANAGER") {
+            binding.etNewOrganization.setText(currentUserOrg)
+            binding.etNewOrganization.isEnabled = false // Il ne peut pas créer pour une autre boîte
+        }
+
+// 2. Filtrer les rôles disponibles dans le Spinner
+        val roles = if (currentUserRole == "ADMIN") {
+            arrayOf("ADMIN", "MANAGER", "ANALYSTE")
+        } else {
+            arrayOf("MANAGER", "ANALYSTE") // Le manager ne peut pas créer d'Admin
+        }
+        val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, roles)
+        binding.spinnerRole.adapter = adapter
+
+
+
         binding.btnSaveUser.setOnClickListener {
+
             val user = User(
                 name = binding.etNewName.text.toString().trim(),
                 email = binding.etNewEmail.text.toString().trim(),

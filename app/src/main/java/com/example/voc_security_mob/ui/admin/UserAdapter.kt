@@ -17,6 +17,9 @@ class UserAdapter(private var users: List<User>) : RecyclerView.Adapter<UserAdap
         val organization: TextView = view.findViewById(R.id.tvUserOrg)
     }
 
+    fun getUserAt(position: Int): User {
+        return users[position]
+    }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_user, parent, false)
         return UserViewHolder(view)
@@ -37,4 +40,5 @@ class UserAdapter(private var users: List<User>) : RecyclerView.Adapter<UserAdap
         users = newUsers
         notifyDataSetChanged()
     }
+
 }

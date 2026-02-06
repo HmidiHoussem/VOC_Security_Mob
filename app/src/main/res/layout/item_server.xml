@@ -24,11 +24,11 @@
             android:background="@drawable/spinner_background"
             android:backgroundTint="#F5F5F5">
             <ImageView
-                android:id="@+id/ivUserIcon"
+                android:id="@+id/ivServerIcon"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:layout_gravity="center"
-                android:src="@android:drawable/ic_menu_myplaces"
+                android:src="@android:drawable/ic_dialog_info"
                 app:tint="@color/purple_500" />
         </FrameLayout>
 
@@ -40,64 +40,47 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/tvUserName"
+                android:id="@+id/tvServerName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nom du Collaborateur"
+                android:text="Server Name"
                 android:textSize="18sp"
                 android:textColor="#212121"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/tvUserEmail"
+                android:id="@+id/tvServerIp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="email@exemple.com"
+                android:text="192.168.1.1"
                 android:textSize="14sp"
                 android:textColor="#757575" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:orientation="vertical">
 
             <TextView
-                android:id="@+id/tvUserRole"
+                android:id="@+id/tvSecurityScore"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Rôle : Admin"
-                android:textSize="12sp"
-                android:layout_marginTop="2dp"
+                android:text="100%"
+                android:textColor="#388E3C"
+                android:textStyle="bold"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tvCriticalityLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Critique"
+                android:textSize="10sp"
+                android:textAllCaps="true"
                 android:textColor="@color/purple_500"
-                android:textStyle="italic" />
+                android:textStyle="bold"/>
         </LinearLayout>
-<!--
-        <TextView
-            android:id="@+id/tvUserOrg"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="#E8F5E9"
-            android:paddingHorizontal="8dp"
-            android:paddingVertical="4dp"
-            android:text="ORG"
-            android:textColor="#388E3C"
-            android:textSize="10sp"
-            android:textStyle="bold" />
--->
-        <TextView
-            android:id="@+id/tvUserOrg"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="NOM DE L'ORGANISATION"
-            android:background="#E8F5E9"
-            android:textColor="#388E3C"
-            android:paddingHorizontal="12dp"
-            android:paddingVertical="6dp"
-            android:textStyle="bold"
-
-            android:textSize="10sp"
-            android:maxWidth="120dp"
-            android:singleLine="false"
-            android:maxLines="3"
-            android:ellipsize="end"
-            android:gravity="center"
-            android:breakStrategy="balanced" />
-
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

@@ -24,7 +24,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Collaborateurs"
+                android:text="Liste des Assets"
                 android:textSize="28sp"
                 android:textStyle="bold"
                 android:textColor="#212121" />
@@ -32,14 +32,14 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Gérez les accès et les membres de l'équipe"
+                android:text="Gérez vos serveurs et leur sécurité"
                 android:textSize="14sp"
                 android:textColor="#757575" />
         </LinearLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvUsers"
+        android:id="@+id/rvServers"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToPadding="false"
@@ -48,12 +48,12 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabAddUser"
+        android:id="@+id/fabAddServer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="24dp"
-        android:contentDescription="Ajouter un collaborateur"
+        android:contentDescription="Ajouter un serveur"
         app:srcCompat="@android:drawable/ic_input_add"
         app:tint="@android:color/white"
         app:backgroundTint="@color/purple_500"

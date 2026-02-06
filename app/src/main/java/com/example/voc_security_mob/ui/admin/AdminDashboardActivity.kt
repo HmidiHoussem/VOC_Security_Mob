@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.voc_security_mob.R
 import com.example.voc_security_mob.databinding.ActivityAdminDashboardBinding
+import com.example.voc_security_mob.ui.analyst.ServerListFragment
 import com.example.voc_security_mob.ui.auth.LoginActivity
 
 class AdminDashboardActivity : AppCompatActivity() {
@@ -24,7 +25,8 @@ class AdminDashboardActivity : AppCompatActivity() {
             when (item.itemId) {
                 R.id.nav_home -> loadFragment(HomeFragment())
                 R.id.nav_users -> loadFragment(UserListFragment())
-                R.id.nav_add -> loadFragment(AddUserFragment())
+               // R.id.nav_add -> loadFragment(AddUserFragment()) //suprimé
+                R.id.nav_assets -> loadFragment(ServerListFragment())
                 R.id.nav_profile -> {
                     loadFragment(ProfileFragment())
                 //showLogoutDialog()

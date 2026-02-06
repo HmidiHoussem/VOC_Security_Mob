@@ -22,4 +22,23 @@ class UserRepository(private val userDao: UserDao) {
 
     val userCount: Flow<Int> = userDao.getUserCount()
     val organizationCount: Flow<Int> = userDao.getOrganizationCount()
+
+
+    // getUsersByOrganization
+    fun getUsersByOrganization(orgName: String): Flow<List<User>> {
+        return userDao.getUsersByOrganization(orgName)
+    }
+
+    //login
+    suspend fun login(email: String, password: String): User? {
+        return userDao.login(email, password)
+    }
+
+    //delete
+    suspend fun deleteUser(user: User) {
+        userDao.deleteUser(user)
+    }
+
+    //role
+    fun getUserCountByOrg(orgName: String): Flow<Int> = userDao.getUserCountByOrg(orgName)
 }

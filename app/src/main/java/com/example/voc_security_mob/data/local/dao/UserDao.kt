@@ -26,6 +26,9 @@ interface UserDao {
     @Update
     suspend fun updateUser(user: User)
 
+    @Query("UPDATE users SET name = :newName, email = :newEmail WHERE id = :userId")
+    suspend fun updateUserProfile(userId: Int, newName: String, newEmail: String)
+    // Supprimer un utilisateur
     @Delete
     suspend fun deleteUser(user: User)
 
@@ -37,4 +40,21 @@ interface UserDao {
 
     @Query("SELECT COUNT(DISTINCT organizationName) FROM users")
     fun getOrganizationCount(): Flow<Int>
+
+
+
+    //list users by Organization for the managrs !
+    @Query("SELECT * FROM users WHERE organizationName = :orgName AND role != 'ADMIN'")
+    fun getUsersByOrganization(orgName: String): Flow<List<User>>
+
+
+    //login
+    @Query("SELECT * FROM users WHERE email = :email AND password = :password LIMIT 1")
+    suspend fun login(email: String, password: String): User?
+
+
+    // by role !
+    @Query("SELECT COUNT(*) FROM users WHERE organizationName = :orgName")
+    fun getUserCountByOrg(orgName: String): Flow<Int>
+
 }
